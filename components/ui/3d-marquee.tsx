@@ -19,8 +19,9 @@ const ThreeDMarquee = ({
   images = defaultImages,
   className,
 }: ThreeDMarqueeProps) => {
-  const chunkSize = Math.ceil(images.length / 3)
-  const chunks = Array.from({ length: 3 }, (_, colIndex) => {
+  const cols = 7
+  const chunkSize = Math.ceil(images.length / cols)
+  const chunks = Array.from({ length: cols }, (_, colIndex) => {
     const start = colIndex * chunkSize
     return images.slice(start, start + chunkSize)
   })
@@ -33,10 +34,10 @@ const ThreeDMarquee = ({
       )}
     >
       <div className='flex size-full items-center justify-center'>
-        <div className='aspect-square size-180 shrink-0 scale-135 max-xl:size-full max-xl:scale-110 max-sm:scale-130'>
+        <div className='aspect-square size-220 shrink-0 scale-150 max-xl:size-full max-xl:scale-125 max-sm:scale-145'>
           <div
             style={{ transform: 'rotateX(45deg) rotateY(0deg) rotateZ(45deg)' }}
-            className='relative top-0 right-[-55%] grid size-full origin-top-left grid-cols-3 gap-5 transform-3d max-xl:-top-30 max-xl:right-[-45%] max-sm:top-0 max-sm:gap-2'
+            className='relative top-0 right-[-55%] grid size-full origin-top-left grid-cols-7 gap-2 transform-3d max-xl:-top-30 max-xl:right-[-45%] max-sm:top-0 max-sm:gap-1'
           >
             {chunks.map((subarray, colIndex) => (
               <motion.figure
@@ -47,7 +48,7 @@ const ThreeDMarquee = ({
                   repeatType: 'reverse',
                 }}
                 key={colIndex + 'marquee'}
-                className='flex flex-col items-start gap-6 max-sm:gap-3'
+                className='flex flex-col items-start gap-3 max-sm:gap-2'
               >
                 {subarray.map((src, imageIndex) => (
                   <div className='relative' key={imageIndex + src}>

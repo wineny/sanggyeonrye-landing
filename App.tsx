@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ThreeDMarquee from './components/ui/3d-marquee';
 
+const _baseImages = Object.keys(
+  import.meta.glob('/image/group/thumb/*.jpeg', { eager: false })
+);
+// 최소 35장(7컬럼 x 5행)이 되도록 반복
+const groupThumbImages = Array.from({ length: Math.max(35, _baseImages.length) }, (_, i) => _baseImages[i % _baseImages.length]);
+
 const FadeIn = ({ children, delay = 0, className = '' }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -83,7 +89,7 @@ const App = () => {
               <SlideIn delay={0.1} from="left" className="md:col-span-7">
                 <div className="aspect-[4/3] overflow-hidden rounded-sm">
                   <img
-                    src="https://picsum.photos/seed/family_nuri/900/675"
+                    src="/image/KakaoTalk_Photo_2026-03-11-22-52-11.jpeg"
                     alt="누리 가족"
                     className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000"
                     referrerPolicy="no-referrer"
@@ -109,7 +115,7 @@ const App = () => {
                 <span className="text-xs tracking-[0.3em] uppercase text-[#2c2825]/40 font-sans">Injun's Family</span>
                 <h3 className="font-serif text-3xl md:text-4xl mt-3 mb-6 font-light">인준 가족</h3>
                 <div className="w-10 h-px bg-[#2c2825]/20 mb-6" />
-                <p className="text-[#2c2825]/60 font-sans text-sm leading-relaxed mb-4">할머니, 엄마, 남동생 인상</p>
+                <p className="text-[#2c2825]/60 font-sans text-sm leading-relaxed mb-4">할머니, 엄마, 남동생 인성</p>
                 <p className="font-serif italic text-xl text-[#2c2825]/80 leading-relaxed">
                   "단단함이 뭔지 처음 보여준 사람들"
                 </p>
@@ -117,7 +123,7 @@ const App = () => {
               <SlideIn delay={0.3} from="right" className="md:col-span-7 order-1 md:order-2">
                 <div className="aspect-[4/3] overflow-hidden rounded-sm">
                   <img
-                    src="https://picsum.photos/seed/family_injun/900/675"
+                    src="/image/IMG_2798_fixed.png"
                     alt="인준 가족"
                     className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000"
                     referrerPolicy="no-referrer"
@@ -147,12 +153,12 @@ const App = () => {
           <div className="grid md:grid-cols-2 gap-4">
             <FadeIn delay={0.15}>
               <div className="aspect-[4/3] overflow-hidden rounded-sm">
-                <img src="https://picsum.photos/seed/jarasum1/800/600" alt="만남 1" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 opacity-90 hover:opacity-100" referrerPolicy="no-referrer" />
+                <img src="/image/IMG_1061.JPG" alt="만남 1" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 opacity-90 hover:opacity-100" referrerPolicy="no-referrer" />
               </div>
             </FadeIn>
             <FadeIn delay={0.3}>
               <div className="aspect-[4/3] overflow-hidden rounded-sm md:mt-16">
-                <img src="https://picsum.photos/seed/jarasum2/800/600" alt="만남 2" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 opacity-90 hover:opacity-100" referrerPolicy="no-referrer" />
+                <img src="/image/IMG_0976.JPG" alt="만남 2" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 opacity-90 hover:opacity-100" referrerPolicy="no-referrer" />
               </div>
             </FadeIn>
           </div>
@@ -164,9 +170,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <ThreeDMarquee
-              images={Array.from({ length: 24 }, (_, i) =>
-                `https://picsum.photos/seed/couple_${i + 1}/400/300`
-              )}
+              images={groupThumbImages}
             />
           </FadeIn>
         </div>
@@ -185,21 +189,25 @@ const App = () => {
           </FadeIn>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { title: "자라섬", desc: "텐트 치고 어깨 부딪히던 밤", seed: "camping_night" },
-              { title: "지피터스", desc: "AI를 공부하다 서로가 더 신기해진", seed: "ai_study" },
-              { title: "와인바", desc: "재즈가 흘렀고, 와인이 흘렀고, 시간도 흘렀다", seed: "jazz_wine" },
-              { title: "야구장", desc: "같은 팀을 응원하면 마음도 같아진다", seed: "baseball_stadium" },
-              { title: "해커톤", desc: "우승보다 빛났던 건 옆에 있던 사람", seed: "hackathon_win" },
-              { title: "보라카이 · 코타키나발루", desc: "어디든 좋았다, 네가 있어서", seed: "beach_travel" },
+              { title: "지피터스", desc: "AI를 공부하다 서로가 더 신기해진", seed: "ai_study", img: "/image/IMG_7505.png" },
+              { title: "와인바", desc: "재즈가 흘렀고, 와인이 흘렀고, 시간도 흘렀다", seed: "jazz_wine", img: "/image/IMG_2316.png" },
+              { title: "야구장", desc: "같은 팀을 응원하면 마음도 같아진다", seed: "baseball_stadium", img: "/image/43D545D0-CC04-4B05-8A48-7DC82A53C0CE_1_105_c.jpeg" },
+              { title: "마냥 즐거운 일만 있진 않았다", desc: "우린 같이 이겨내는 법을 배웠다", seed: "little_storm", img: "/image/hospital.png", pos: "top" },
+              { title: "극복", desc: "부서진 자리마다 금을 입히듯 더 단단해졌다", seed: "growing_together", img: "/image/62DDE8B9-3F28-4A7E-81A9-AEE3C29C1B0D_1_105_c.jpeg" },
+              { title: "이사", desc: "같은 지붕 아래, 첫 발을 내딛다", seed: "moving_in", img: "/image/4B53D5B4-07FF-4B5F-8382-D648E5C75672_1_105_c.jpeg" },
+              { title: "해커톤", desc: "우승보다 빛났던 건 옆에 있던 사람", seed: "hackathon_win", img: "/image/IMG_2797.PNG" },
+              { title: "보라카이 · 코타키나발루", desc: "어디든 좋았다, 네가 있어서", seed: "beach_travel", img: "/image/9459A91E-06FD-48C8-A223-E008100B11FE_1_105_c.jpeg" },
+              { title: "웨딩 사진 촬영", desc: "우리의 가장 아름다운 순간을 담다", seed: "wedding_photo", img: "/image/B7AA0088-EBF0-45E8-B1AD-919817535A74_1_105_c.jpeg" },
             ].map((item, idx) => (
               <FadeIn key={idx} delay={idx * 0.08}>
                 <div className="group cursor-default h-full">
                   <div className="aspect-[4/3] overflow-hidden rounded-sm mb-5 relative">
                     <div className="absolute inset-0 bg-[#2c2825]/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
-                      src={`https://picsum.photos/seed/${item.seed}/600/450`}
+                      src={item.img || `https://picsum.photos/seed/${item.seed}/600/450`}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-1000"
+                      style={item.pos ? { objectPosition: item.pos } : undefined}
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -229,7 +237,7 @@ const App = () => {
             <FadeIn delay={0.15}>
               <div className="group">
                 <div className="aspect-[3/4] overflow-hidden rounded-sm mb-8">
-                  <img src="https://picsum.photos/seed/nuri_portrait/600/800" alt="누리" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000" referrerPolicy="no-referrer" />
+                  <img src="/image/E1B205A8-5451-4657-A79A-A2134017C40B_1_105_c.jpeg" alt="누리" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-4">
@@ -252,7 +260,7 @@ const App = () => {
             <FadeIn delay={0.3}>
               <div className="group md:mt-20">
                 <div className="aspect-[3/4] overflow-hidden rounded-sm mb-8">
-                  <img src="https://picsum.photos/seed/injun_portrait/600/800" alt="인준" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000" referrerPolicy="no-referrer" />
+                  <img src="/image/15EECDB8-B358-4CF1-BC38-9A1D57BAE8AA_1_105_c.jpeg" alt="인준" className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000" referrerPolicy="no-referrer" />
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-4">
@@ -261,10 +269,11 @@ const App = () => {
                     <span className="font-serif text-2xl font-light">누리</span>
                   </div>
                   <div className="flex gap-2 mb-6">
-                    <span className="text-xs text-[#2c2825]/30 border border-dashed border-[#2c2825]/15 px-3 py-1 rounded-full font-sans italic">작성 예정</span>
+                    <span className="text-xs text-[#2c2825]/40 border border-[#2c2825]/15 px-3 py-1 rounded-full font-sans">#내집</span>
+                    <span className="text-xs text-[#2c2825]/40 border border-[#2c2825]/15 px-3 py-1 rounded-full font-sans">#빛누리</span>
                   </div>
-                  <blockquote className="font-serif italic text-xl text-[#2c2825]/30 leading-relaxed border-l-2 border-dashed border-[#2c2825]/10 pl-6">
-                    "작성 예정"
+                  <blockquote className="font-serif italic text-xl text-[#2c2825]/70 leading-relaxed border-l-2 border-[#2c2825]/15 pl-6">
+                    "누리는 내 집이다"
                   </blockquote>
                 </div>
               </div>
@@ -360,12 +369,12 @@ const App = () => {
               <div className="grid md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-6">
                   <div className="aspect-[3/4] overflow-hidden rounded-sm">
-                    <img src="https://picsum.photos/seed/family_injun_thanks/600/800" alt="인준 가족" className="w-full h-full object-cover opacity-85" referrerPolicy="no-referrer" />
+                    <img src="/image/IMG_2256.jpg" alt="인준 가족" className="w-full h-full object-cover opacity-85" referrerPolicy="no-referrer" />
                   </div>
                 </div>
                 <div className="md:col-span-6">
                   <span className="text-[#f5f0eb]/30 text-xs tracking-[0.3em] uppercase font-sans">누리 올림</span>
-                  <h3 className="font-serif text-3xl font-light mt-3 mb-6">어머니, 할머니, 인상</h3>
+                  <h3 className="font-serif text-3xl font-light mt-3 mb-6">어머니, 할머니, 인성</h3>
                   <div className="w-10 h-px bg-[#f5f0eb]/15 mb-6" />
                   <p className="font-serif italic text-xl text-[#f5f0eb]/60 leading-relaxed">
                     "귀한 사람을 이렇게 키워주셔서 감사합니다"
@@ -378,7 +387,7 @@ const App = () => {
               <div className="grid md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-6 md:order-2">
                   <div className="aspect-[3/4] overflow-hidden rounded-sm">
-                    <img src="https://picsum.photos/seed/family_nuri_thanks/600/800" alt="누리 가족" className="w-full h-full object-cover opacity-85" referrerPolicy="no-referrer" />
+                    <img src="/image/KakaoTalk_Photo_2026-03-11-22-52-15.jpeg" alt="누리 가족" className="w-full h-full object-cover opacity-85" style={{ objectPosition: '20% center' }} referrerPolicy="no-referrer" />
                   </div>
                 </div>
                 <div className="md:col-span-6 md:order-1">
