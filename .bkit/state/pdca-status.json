@@ -1,0 +1,145 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-11T13:07:20.190Z",
+  "activeFeatures": [
+    "상견례-발표용-랜딩페이지",
+    "ui"
+  ],
+  "primaryFeature": "상견례-발표용-랜딩페이지",
+  "features": {
+    "상견례-발표용-랜딩페이지": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-11T12:50:14.717Z",
+        "lastUpdated": "2026-03-11T13:07:20.189Z"
+      },
+      "lastFile": "/Users/wine_ny/Downloads/상견례-발표용-랜딩페이지/App.tsx"
+    },
+    "ui": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-11T12:56:33.380Z",
+        "lastUpdated": "2026-03-11T12:56:33.380Z"
+      },
+      "lastFile": "/Users/wine_ny/Downloads/상견례-발표용-랜딩페이지/components/ui/3d-marquee.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-03-11T12:46:50.460Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-03-11T13:07:20.190Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-03-11T12:50:14.717Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:50:31.940Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:50:37.458Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:53:50.569Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:56:33.380Z",
+      "feature": "ui",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:56:43.424Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:56:53.754Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:58:42.103Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T12:59:12.669Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:02:09.738Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:04:21.140Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:04:38.506Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:04:54.477Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:05:41.260Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:05:54.307Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-11T13:07:20.189Z",
+      "feature": "상견례-발표용-랜딩페이지",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}
