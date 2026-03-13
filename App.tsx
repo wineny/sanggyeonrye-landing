@@ -2,9 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ThreeDMarquee from './components/ui/3d-marquee';
 
-const _baseImages = Object.keys(
-  import.meta.glob('/image/group/thumb/*.jpeg', { eager: false })
-);
+const _baseImages = [
+  '/image/group/thumb/1341CC6C-8660-4B04-ACEE-FC6BF39F6C7D_1_105_c.jpeg',
+  '/image/group/thumb/1904BD72-F4F5-45CB-9BC7-F2A5DFE2365B_4_5005_c.jpeg',
+  '/image/group/thumb/42B5A4A1-B58E-4460-B006-7D8F27E267FF_1_105_c.jpeg',
+  '/image/group/thumb/592DD97F-E393-46BA-83AF-9BF1AFC39491_1_105_c.jpeg',
+  '/image/group/thumb/6BD23F60-D494-4C3E-A3B5-A7B49E8AAC6F_1_105_c.jpeg',
+  '/image/group/thumb/729A2C52-BDF1-4E09-9ABD-35889AE34110_1_105_c.jpeg',
+  '/image/group/thumb/93CD1948-2525-4204-BBAE-8C3DEA9B01E8_1_105_c.jpeg',
+  '/image/group/thumb/9D988DC9-8BCF-4B23-959D-050803C58C50_1_105_c.jpeg',
+  '/image/group/thumb/C1AB61FC-7598-43A2-9D07-83DF961EA4D9_1_105_c.jpeg',
+  '/image/group/thumb/CCD6B35A-5BED-4BC6-86B0-763F1BAFFD87_1_105_c.jpeg',
+  '/image/group/thumb/D0043677-6AAD-4DF4-BB5B-2F30F1BC4FB0_1_105_c.jpeg',
+  '/image/group/thumb/D08896B6-1489-40EC-B660-62E309390BFF_1_105_c.jpeg',
+  '/image/group/thumb/DDF9AD11-32DF-4D83-B8F5-AD7BA092B19A_1_105_c.jpeg',
+  '/image/group/thumb/EE36863B-C8DE-4208-AE51-E8F31CAB1299_1_105_c.jpeg',
+];
 // 최소 35장(7컬럼 x 5행)이 되도록 반복
 const groupThumbImages = Array.from({ length: Math.max(35, _baseImages.length) }, (_, i) => _baseImages[i % _baseImages.length]);
 
